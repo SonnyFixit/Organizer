@@ -18,10 +18,68 @@ namespace OrganizerApp.ViewModels.Helpers
             using (SQLiteConnection connection = new SQLiteConnection(databaseFile))
             {
                 connection.CreateTable<T>();
-                connection.Insert(item);
+                int rows = connection.Insert(item);
+
+                if (rows > 0)
+                {
+                    result = true;
+
+                }
             }
 
                 return result;
+        }
+
+
+        public static bool Update<T>(T item)
+        {
+            bool result = false;
+
+            using (SQLiteConnection connection = new SQLiteConnection(databaseFile))
+            {
+                connection.CreateTable<T>();
+                int rows = connection.Update(item);
+
+                if (rows > 0)
+                {
+                    result = true;
+                }
+            }
+
+            return result;
+        }
+
+        public static bool Delete<T>(T item)
+        {
+            bool result = false;
+
+            using (SQLiteConnection connection = new SQLiteConnection(databaseFile))
+            {
+                connection.CreateTable<T>();
+                int rows = connection.Delete(item);
+
+                if (rows > 0)
+                {
+                    result = true;
+                }
+            }
+
+            return result;
+        }
+
+        //T will have a parametles constructor
+        public static List <T> Read<T>(T item) where T: new()
+        {
+            List<T> items;
+
+            using (SQLiteConnection connection = new SQLiteConnection(databaseFile))
+            {
+                connection.CreateTable<T>();
+                items = connection.Table<T>().ToList();
+
+            }
+
+            return items;
         }
     }
 }

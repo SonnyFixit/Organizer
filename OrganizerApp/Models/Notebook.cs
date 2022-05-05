@@ -5,7 +5,7 @@ using SQLite;
 
 namespace OrganizerApp.Models
 {
-    class Notebook
+    public class Notebook
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }

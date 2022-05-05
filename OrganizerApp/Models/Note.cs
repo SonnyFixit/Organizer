@@ -6,7 +6,7 @@ using SQLite;
 
 namespace OrganizerApp.Models
 {
-    class Note
+    public class Note
     {
         [PrimaryKey, AutoIncrement]
 

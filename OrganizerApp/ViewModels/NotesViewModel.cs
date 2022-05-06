@@ -12,5 +12,18 @@ namespace OrganizerApp.ViewModels
     {
         public ObservableCollection<Notebook> Notebooks {get; set; }
 
+        private Notebook selectedNotebook;
+
+        public Notebook SelectedNotebook
+        {
+            get { return selectedNotebook; }
+            set
+            {
+                selectedNotebook = value;
+            }
+        }
+
+        public ObservableCollection<Note> Notes { get; set; }
+
     }
 }

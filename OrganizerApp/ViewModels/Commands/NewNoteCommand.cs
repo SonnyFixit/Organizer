@@ -7,16 +7,11 @@ using System.Windows.Input;
 
 namespace OrganizerApp.ViewModels.Commands
 {
-    class NewNotebookCommand : ICommand
+    class NewNoteCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
-        public NotesViewModel NVM { get; set; }
-
-        public NewNotebookCommand(NotesViewModel nvm)
-        {
-            NVM = nvm; 
-        }
+       
 
         public bool CanExecute(object parameter)
         {

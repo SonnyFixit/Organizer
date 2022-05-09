@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OrganizerApp.Models;
 using System.Collections.ObjectModel;
+using OrganizerApp.ViewModels.Commands;
 
 namespace OrganizerApp.ViewModels
 {
@@ -24,6 +25,18 @@ namespace OrganizerApp.ViewModels
         }
 
         public ObservableCollection<Note> Notes { get; set; }
+
+        public NewNotebookCommand NewNotebookCommand { get; set; }
+
+        public NewNoteCommand NewNoteCommand { get; set; }
+
+        public NotesViewModel()
+        {
+            NewNotebookCommand = new NewNotebookCommand(this);
+            NewNoteCommand = new NewNoteCommand(this);
+        }
+
+
 
     }
 }

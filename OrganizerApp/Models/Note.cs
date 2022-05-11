@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
-
+using System.Linq;
+using System.ComponentModel;
 
 namespace OrganizerApp.Models
 {

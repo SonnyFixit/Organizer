@@ -35,7 +35,8 @@ namespace OrganizerApp.ViewModels.Commands
         public void Execute(object parameter)
         {
             Notebook selectedNotebook = parameter as Notebook;
-            throw new NotImplementedException();
+            NVM.CreateNote(selectedNotebook.ID);
+            
         }
     }
 }

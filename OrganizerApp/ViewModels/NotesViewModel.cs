@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OrganizerApp.Models;
 using System.Collections.ObjectModel;
+
+using OrganizerApp.Models;
 using OrganizerApp.ViewModels.Commands;
+using OrganizerApp.ViewModels.Helpers;
 
 namespace OrganizerApp.ViewModels
 {
@@ -37,6 +39,34 @@ namespace OrganizerApp.ViewModels
         }
 
 
+        public void CreateNotebook()
+        {
+            Notebook newNotebook = new Notebook()
+            {
+                Name = "New notebook"
+            };
+
+            DatabaseHelper.Insert(newNotebook);
+        }
+
+
+        //Recieve int from Note id
+        public void CreateNote (int notebookID)
+        {
+            Note newNote = new Note()
+            {
+                NotebookID = notebookID,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                Title = "New note"
+
+
+            };
+
+            DatabaseHelper.Insert(newNote);
+        }
+
+        
 
     }
 }

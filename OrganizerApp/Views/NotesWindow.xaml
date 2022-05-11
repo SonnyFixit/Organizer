@@ -28,9 +28,30 @@
             </MenuItem>
 
         </Menu>
-        <ListView DockPanel.Dock = "Left">
+        <ListView DockPanel.Dock = "Left"
+                  Width="140"
+                  ItemsSource ="{Binding Notebooks}">
             
         </ListView>
-        
+        <ListView DockPanel.Dock = "Left"
+                  Width="140"
+                  ItemsSource = "{Binding Notes}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text ="{Binding Title}">
+                        
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Content="Speech"
+                        Click="SpeechButton_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+        <Grid/>
+
     </DockPanel>
 </Window>

@@ -28,5 +28,10 @@ namespace OrganizerApp.Views
         {
             Application.Current.Shutdown();
         }
+
+        private void SpeechButton_Click (object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

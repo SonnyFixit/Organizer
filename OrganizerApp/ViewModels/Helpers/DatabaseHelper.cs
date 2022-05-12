@@ -68,7 +68,7 @@ namespace OrganizerApp.ViewModels.Helpers
         }
 
         //T will have a parametles constructor
-        public static List <T> Read<T>() where T: new()
+        public static List <T> Read<T>(T item) where T: new()
         {
             List<T> items;
 

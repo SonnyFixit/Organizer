@@ -10,17 +10,9 @@ namespace OrganizerApp.ViewModels.Commands
 {
     public class NewNoteCommand : ICommand
     {
+        public event EventHandler CanExecuteChanged;
 
         public NotesViewModel NVM { get; set; }
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
-        
-
-       
 
         public NewNoteCommand(NotesViewModel nvm)
         {
@@ -31,7 +23,13 @@ namespace OrganizerApp.ViewModels.Commands
         public bool CanExecute(object parameter)
         {
             Notebook selectedNotebook = parameter as Notebook;
-            return selectedNotebook != null ? true : false;
+
+            if(selectedNotebook != null)
+            {
+                return true;
+            }
+            
+            return false;
         }
 
         public void Execute(object parameter)

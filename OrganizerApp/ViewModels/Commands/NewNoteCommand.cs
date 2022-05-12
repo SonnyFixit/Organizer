@@ -8,7 +8,7 @@ using OrganizerApp.Models;
 
 namespace OrganizerApp.ViewModels.Commands
 {
-    public class NewNoteCommand : ICommand
+    class NewNoteCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 

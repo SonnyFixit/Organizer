@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace OrganizerApp.ViewModels.Commands
 {
-    public class NewNotebookCommand : ICommand
+    class NewNotebookCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 

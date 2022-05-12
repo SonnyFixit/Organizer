@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OrganizerApp.Views"
         xmlns:vm ="clr-namespace:OrganizerApp.ViewModels"
         mc:Ignorable="d"
-        Title="NotesWindow" Height="450" Width="450">
+        Title="NotesWindow" Height="450" Width="900">
 
     <Window.Resources>
         <vm:NotesViewModel x:Key="ViewModels"/>
@@ -30,7 +30,13 @@
         </Menu>
         <ListView DockPanel.Dock = "Left"
                   Width="140"
+                  SelectedValue ="{Binding SelectedNotebook, Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource ="{Binding Notebooks}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text = "{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
             
         </ListView>
         <ListView DockPanel.Dock = "Left"
@@ -38,9 +44,8 @@
                   ItemsSource = "{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text ="{Binding Title}">
-                        
-                    </TextBlock>
+                    <TextBlock Text ="{Binding Title}"/>
+
                 </DataTemplate>
             </ListView.ItemTemplate>
 
@@ -51,7 +56,13 @@
                         Click="SpeechButton_Click"/>
             </ToolBar>
         </ToolBarTray>
-        <Grid/>
+        <Grid>
+            <RichTextBox x:Name="contentRichTextBox"
+                         TextChanged ="contentRichTextBox_TextChanged"/>
+        </Grid>
+        <StatusBar>
+            
+        </StatusBar>
 
     </DockPanel>
 </Window>
